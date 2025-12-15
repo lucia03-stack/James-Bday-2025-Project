@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday James</title>
+  <meta name="description" content="A simple responsive site built from scratch." />
+  <!-- Open Graph (basic) -->
+  <meta property="og:title" content="Happy Birthday James" />
+  <meta property="og:description" content="Can you solve all the clues to reveal your present?" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="https://apps.4sitestudios.com/wordle-for-good/wordle-for-good.js"></script>
+</head>
+<body class="index">
+  <div class="index-bg"></div>
+  <header class="site-header">
+        <div id="speech-bubble">
+        <div id="bub-part-a"></div>
+        <div id="bub-part-b"></div>
+        <div id="bub-part-c"></div>
+        <div id="speech-txt">Happy Birthday James!</div>
+        <div id="speech-txt">All those hours spent playing NYT games have culminated in this moment... It's time to put your skills to the test and show us what you've got.</div>
+        <div id="bub-part-c"></div>
+        <div id="bub-part-b"></div>
+        <div id="bub-part-a"></div>
+
+        <div id="speech-arrow">
+          <div id="arrow-w"></div>
+          <div id="arrow-x"></div>
+          <div id="arrow-y"></div>
+          <div id="arrow-z"></div>
+        </div>
+        <!--end arrow-->
+      </div>
+      <!--end speech bubble-->
+      <img src="https://i.postimg.cc/MHsQ6945/Group-1.png" width="45%">
+  </header>
+
+  <main id="home">
+    <section id="games" class="games container">
+      <h2>1. Crossword</h2>
+      <div class="grid">
+        <article class="card">
+          <div style="position: relative; text-align: center;">
+            <iframe height="700px" width="100%" allow="web-share; fullscreen" style="border:none; width: 100% !important; position: static;display: block !important; margin: 0 !important;" src="https://puzzleme.amuselabs.com/pmm/crossword?id=3ef6c2a4&set=9041fffcc652dbc8ac42fe08a13b57e83f09b6ebfbc6472fb48a716c7e598aab&embed=1" aria-label="Puzzle Me Game"> 
+            </iframe>
+            <div class="pm-attribution-div" style="font-family: sans-serif; font-size: 12px; color: rgb(102, 102, 102); position: absolute; top: 100%; left: 50%; transform: translate(-50%, 0px); padding-top: 5px; width: 100%;">
+            </div>
+          </div>
+        </article>
+      </div>
+      <br>
+      <h2>2. Wordle</h2>
+      <div class="grid">
+        <article class="card">
+          <wordle-for-good 
+          word="98-111-97-114-100"
+          bg-color="#fafafa"
+          text-color="#333333"
+          tile-border-color="#888888"
+          tile-bg-color="#ffffff"
+          tile-bg-wrong-color="#39393c"
+          tile-bg-wrong-location-color="#b59f3b"
+          tile-bg-correct-color="#538d4e"
+          tile-text-color="#333333"
+          key-bg-color="#818283"
+          key-text-color="#ffffff"
+          key-text-size="1.3rem"
+          width="100%">
+          </wordle-for-good>
+        </article>
+      </div>
+        <br>
+
+        <h2>3. Secret Password</h2>
+        <div class="grid">
+          <article class="card">
+            <p>Add one word from the crossword to the Wordle answer:</p>
+            <div class="password-container">
+            <input type="text" id="secretInput" placeholder="Enter the secret word" />
+            <button id="checkButton">Submit</button>
+            </div>
+
+            <script>
+              document.getElementById("checkButton").addEventListener("click", function () {
+                const input = document.getElementById("secretInput").value.trim().toLowerCase();
+                const resultBox = document.getElementById("resultBox");
+
+                if (input === "charcuterie board") {
+                  resultBox.classList.remove("hidden");
+                } 
+                else {
+                  resultBox.classList.add("hidden");
+                  alert("Incorrect! Try again 🙂");
+                }
+              });
+            </script>
+          </article>
+        </div>
+          <br>
+          <div id="resultBox" class="hidden">
+            <h2>4. Select a date:</h2>
+            <div class="grid">
+               <form id="dateForm">
+                <p>Select a date when you will be free from 11am to 2pm:</p>
+                  <label>  
+                    <input type="radio" name="eventDate" value="21 February 2026">
+                    14 February 2026
+                  </label><br>
+
+                  <label>
+                    <input type="radio" name="eventDate" value="28 February 2026">
+                    28 February 2026
+                  </label><br>
+
+                  <label>
+                    <input type="radio" name="eventDate" value="Another date in 2026">
+                    Another date in 2026
+                  </label><br><br>
+
+                <button type="submit" id="continueBtn" disabled>Continue</button>
+               </form>
+            </div>
+          </div>
+
+       
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Lucia's Code 2025. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/date.js"></script>
+
+</body>
+</html>
